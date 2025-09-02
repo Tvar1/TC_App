@@ -7,6 +7,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- Network Status -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Network Status</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Connection Type: {{ networkType }}</p>
+    </ion-card-content>
+  </ion-card>
+
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -20,8 +30,6 @@
   </ion-header>
 
   <ion-list>
-    @for (message of getMessages(); track message) {
-      <app-message [message]="message"></app-message>
-    }
+    @for (message of getMessages(); track message) { <app-message [message]="message"></app-message> }
   </ion-list>
 </ion-content>
